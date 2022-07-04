@@ -1,11 +1,6 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import './css/global.css'
-import './plugins/element.js'
-import api from './request/api.js'
+// 对axios封装
 
-/* import axios from 'axios'
+import axios from 'axios'
 
 // 配置请求根路径
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
@@ -30,15 +25,5 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(err);
 });
 
-Vue.prototype.$http = axios */
-
-Vue.prototype.$api = api
-
-// 阻止你显示显示生产模式的消息
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
-
+// 整体导出
+export default axios

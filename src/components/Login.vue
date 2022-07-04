@@ -58,7 +58,8 @@ export default {
     login () {
       this.$refs.loginFormRef.validate(async valid => {
         if (!valid) return
-        const { data: res } = await this.$http.post('login', this.loginForm)
+        // const { data: res } = await this.$http.post('login', this.loginForm)
+        const { data: res } = await this.$api.PostLoginApi(this.loginForm)
         console.log(res)
         if (res.meta.status !== 200) {
           this.$message.error('登录失败！')

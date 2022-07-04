@@ -72,7 +72,8 @@ export default {
             this.$router.push('/login')
         },
         async getMenuList() {
-            const { data: res } = await this.$http.get('menus')
+            // const { data: res } = await this.$http.get('menus')
+            const { data: res } = await this.$api.GetMenus()
             console.log(res);
             if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
             this.menulist = res.data
