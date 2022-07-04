@@ -116,7 +116,7 @@
         </el-dialog>
 
         <!-- 分配角色的对话框 -->
-        <el-dialog title="分配角色" :visible.sync="setRoleDialogVisible" width="50%">
+        <el-dialog title="分配角色" :visible.sync="setRoleDialogVisible" width="50%" @close="setRoleDialogClosed">
             <!-- 主体内容 -->
             <div>
                 <p>当前的用户：{{ userInfo.username }}</p>
@@ -365,11 +365,22 @@ export default {
             this.setRoleDialogVisible = true
         },
         // 点击按钮
-        saveRoleInfo() {
+        async saveRoleInfo() {
             if (!this.selectedRoleId) {
                 return this.$message.error('请选择要分配的角色！')
             }
+            const {data:res}=await this.$api.PutUserRolesSetting(this.userInfo.id,this.selectedRoleId)
+            if(res.meta.status!==200){
+                return this.$message.error('更新角色失败！')
+            }
+            this.$message.success('更新角色成功！')
+            this.getUserList()
             this.setRoleDialogVisible = false
+        },
+        // 关闭分配角色对话框
+        setRoleDialogClosed(){
+            this.selectedRoleId=''
+            this.userInfo={}
         }
     }
 }

@@ -28,4 +28,8 @@ api.GetRightsByTree = () => request.get('rights/tree')
 api.PostRolesSetting = (roleId, idStr) => request.post(`roles/${roleId}/rights`, { rids: idStr })
 
 api.DeleteRight = (roleId, rightId) => request.delete(`roles/${roleId}/rights/${rightId}`)
+
+api.PutUserRolesSetting=(userId,roleId)=>request.put(`users/${userId}/role`,{rid:roleId})
+
+
 export default api
