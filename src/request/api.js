@@ -31,5 +31,10 @@ api.DeleteRight = (roleId, rightId) => request.delete(`roles/${roleId}/rights/${
 
 api.PutUserRolesSetting=(userId,roleId)=>request.put(`users/${userId}/role`,{rid:roleId})
 
+api.GetCateList=(queryInfo)=>request.get('categories',{params:queryInfo})
+
+api.GetRarentCateList=()=>request.get('categories',{params:{type:2}})
+
+api.PostAddCate=(cateInfo)=>request.post('categories',cateInfo)
 
 export default api

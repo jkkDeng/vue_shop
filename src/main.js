@@ -4,7 +4,7 @@ import router from './router'
 import './css/global.css'
 import './plugins/element.js'
 import api from './request/api.js'
-
+import ZkTable from 'vue-table-with-tree-grid'
 /* import axios from 'axios'
 
 // 配置请求根路径
@@ -36,6 +36,8 @@ Vue.prototype.$api = api
 
 // 阻止你显示显示生产模式的消息
 Vue.config.productionTip = false
+
+Vue.component('zk-table',ZkTable)
 
 new Vue({
   router,
