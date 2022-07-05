@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import './css/global.css'
+import './assets/css/global.css'
 import './plugins/element.js'
 import api from './request/api.js'
 import ZkTable from 'vue-table-with-tree-grid'
